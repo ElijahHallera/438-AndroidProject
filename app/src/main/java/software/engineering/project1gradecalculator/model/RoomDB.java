@@ -11,7 +11,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 
-@Database(entities={}, version=1)
+@Database(entities={User.class}, version=1)
 public abstract class RoomDB extends RoomDatabase {
     // singleton design
     private static RoomDB instance;

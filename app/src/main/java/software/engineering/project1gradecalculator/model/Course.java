@@ -17,11 +17,6 @@ public class Course {
     @NonNull
     private String Description;
 
-//    @NonNull
-//    private String firstName;
-//    @NonNull
-//    private String lastName;
-
     @NonNull
     private int courseID;
 

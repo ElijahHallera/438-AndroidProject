@@ -1,5 +1,6 @@
 package software.engineering.project1gradecalculator.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.room.Dao;

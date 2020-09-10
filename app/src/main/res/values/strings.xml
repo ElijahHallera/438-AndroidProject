@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">Project1GradeCalculator</string>
     <string name="action_settings">Settings</string>
+    <string name="add_course">ADD COURSES</string>
+    <string name="go_to_course">GO TO COURSES</string>
+    <string name="course_title">Enter Course Title</string>
+    <string name="course_description">Enter Course Description</string>
+    <string name="course_instructor">Enter Course Instructor</string>
+    <string name="course_id">Enter Course Id</string>
+    <string name="btn_add_course">ADD THIS COURSE</string>
+    <string name="course_edit">EDIT COURSE</string>
+    <string name="course_delete">DELETE COURSE</string>
 </resources>

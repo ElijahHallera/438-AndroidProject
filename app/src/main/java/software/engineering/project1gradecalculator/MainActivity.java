@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText Username;
     private EditText Password;
     private Button Login;
-    private Button CreateAccount;
+    private TextView CreateAccount;
 
     boolean isValid = false;
 
@@ -40,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         final RoomDB db = Room.databaseBuilder(getApplicationContext(), RoomDB.class,"RoomDB")
                 .allowMainThreadQueries()

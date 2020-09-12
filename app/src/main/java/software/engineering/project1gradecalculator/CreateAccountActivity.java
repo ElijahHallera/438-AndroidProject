@@ -43,14 +43,6 @@ public class CreateAccountActivity extends AppCompatActivity {
         Create_New_Account = findViewById((R.id.new_account_create_button));
 
         users = db.dao().getAllUsers();
-        //Just logging some stuff for safety checks
-        if(users == null){
-            Log.d("AYE THIS EMPTY", "YAH YEET");
-        } else {
-            for(int i = 0; i < users.size(); i++){
-                Log.d("AAAAAAAAAAAAAAAAAAAAAA", users.get(i).getUsername());
-            }
-        }
 
         Create_New_Account.setOnClickListener(new View.OnClickListener() {
             @Override

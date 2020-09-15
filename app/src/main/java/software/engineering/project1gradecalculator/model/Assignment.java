@@ -1,13 +1,29 @@
 package software.engineering.project1gradecalculator.model;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Assignment {
+    @PrimaryKey
+    @NonNull
     private int assignmentID;
-    private int courseID;
+    @NonNull
+    private int courseID;   //pk in course.class
+    @NonNull
     private int categoryID;
+    @NonNull
     private int maxScore;
+    @NonNull
     private int earnedScore;
+    @NonNull
     private String assignmentName;
 
+    public Assignment(){}
+
+    @Ignore
     public Assignment(int courseID, int categoryID, int maxScore, int earnedScore, String assignmentName) {
         this.courseID = courseID;
         this.categoryID = categoryID;

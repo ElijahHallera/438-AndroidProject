@@ -8,8 +8,10 @@ import androidx.room.PrimaryKey;
 @Entity
 public class Course {
     @PrimaryKey(autoGenerate = true)
+    int pk;
+
     @NonNull
-    private String Instructor;
+    private int courseID;
 
     @NonNull
     private String Title;
@@ -18,7 +20,7 @@ public class Course {
     private String Description;
 
     @NonNull
-    private int courseID;
+    private String Instructor;
 
     public Course(){}
 
@@ -66,4 +68,6 @@ public class Course {
     public int getCourseID() {
         return courseID;
     }
+
+    public int getPrimaryKey() {return pk;}
 }

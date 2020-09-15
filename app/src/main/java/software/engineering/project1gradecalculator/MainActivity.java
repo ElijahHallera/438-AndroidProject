@@ -27,6 +27,8 @@ import software.engineering.project1gradecalculator.model.User;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static String currentUser;
+
     private List<User> users;
 
     private EditText Username;
@@ -85,15 +87,16 @@ public class MainActivity extends AppCompatActivity {
                 if(inputName.isEmpty() || inputPassword.isEmpty()){
                     Toast.makeText(MainActivity.this, "Error Check input correctly!", Toast.LENGTH_SHORT).show();
                 } else {
-                    isValid = validate(inputName, inputPassword);
-                    if(!isValid){
-                    } else {
+                    if(validate(inputName, inputPassword)){
+                        currentUser = inputName;
                         Toast.makeText(MainActivity.this, "Successful Login!", Toast.LENGTH_SHORT).show();
 
                         //Add code to new activity(new page)
                         Intent intent = new Intent(MainActivity.this, HomePageActivity.class);
 //                        intent.putExtra("USERNAME", inputName);
                         startActivity(intent);
+                    } else {
+                        Log.d("ERROR","log: Input and Password failed validate() function.");
                     }
                 }
             }

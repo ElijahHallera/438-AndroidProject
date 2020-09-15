@@ -21,5 +21,21 @@ public interface AppDao {
 
     @Query("select * from User where username = :username")
     User getUserByName(String username);
-    //************************************************************
+
+    //COURSE************************************************************
+    @Query("select * from Course")
+    List<Course> getAllCourses();
+
+    @Insert void addCourse(Course course);
+
+    @Query("select * from Course where title = :title")
+    Course getCourseByName(String title);
+
+    //Assignment************************************************************
+    @Insert
+    void addAssignment(Assignment assignment);
+
+    @Query("select * from Assignment where courseID = :courseID")
+    Assignment getAllAssignmentsByCourse(int courseID);
+
 }

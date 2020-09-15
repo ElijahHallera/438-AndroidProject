@@ -18,6 +18,7 @@ import software.engineering.project1gradecalculator.model.User;
 
 public class CreateAccountActivity extends AppCompatActivity {
 
+
     private EditText firstName;
     private EditText lastName;
     private EditText Username;

@@ -16,6 +16,7 @@ import software.engineering.project1gradecalculator.model.RoomDB;
 public class HomePageActivity extends AppCompatActivity {
 
     private Button Logout;
+    private Button courses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class HomePageActivity extends AppCompatActivity {
                 .build();
 
         Logout = findViewById(R.id.Logout_button);
+        courses = findViewById(R.id.BTN_goToCourse);
 
         Logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,9 +41,15 @@ public class HomePageActivity extends AppCompatActivity {
             }
         });
 
+        courses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, Course.class);
+                startActivity(intent);
+            }
+        });
 
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);

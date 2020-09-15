@@ -30,4 +30,12 @@ public interface AppDao {
 
     @Query("select * from Course where title = :title")
     Course getCourseByName(String title);
+
+    //Assignment************************************************************
+    @Insert
+    void addAssignment(Assignment assignment);
+
+    @Query("select * from Assignment where courseID = :courseID")
+    Assignment getAllAssignmentsByCourse(int courseID);
+
 }

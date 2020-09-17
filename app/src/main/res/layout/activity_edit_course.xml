@@ -4,6 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditCourse">
+    tools:context=".EditCourse"
+    android:background="@drawable/gradient">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"
+        android:background="#C93384"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="Group 6 Grade Tracker"
+        app:titleTextColor="#f1f1f1"
+        app:titleMarginStart="40dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

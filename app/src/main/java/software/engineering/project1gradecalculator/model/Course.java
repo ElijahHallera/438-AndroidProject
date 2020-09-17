@@ -33,16 +33,14 @@ public class Course {
     }
 
     //******SETTERS******//
-    public void setInstructor(@NonNull String instructor) {
-        Instructor = instructor;
+    public void setInstructor(String instructor) {
+        this.Instructor = instructor;
     }
 
-    public void setTitle(@NonNull String title) {
-        Title = title;
-    }
+    public void setTitle(String title) { this.Title = title; }
 
-    public void setDescription(@NonNull String description) {
-        Description = description;
+    public void setDescription(String description) {
+        this.Description = description;
     }
 
     public void setCourseID(int courseID) {
@@ -50,17 +48,14 @@ public class Course {
     }
 
     //******GETTERS******//
-    @NonNull
     public String getInstructor() {
         return Instructor;
     }
 
-    @NonNull
     public String getTitle() {
         return Title;
     }
 
-    @NonNull
     public String getDescription() {
         return Description;
     }

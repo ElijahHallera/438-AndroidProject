@@ -12,7 +12,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 
-@Database(entities={User.class, Course.class, Assignment.class}, version=3, exportSchema = false)
+@Database(entities={User.class, Course.class, Assignment.class}, version = 3, exportSchema = false)
 public abstract class RoomDB extends RoomDatabase {
     // singleton design
     private static RoomDB instance;
@@ -37,6 +37,15 @@ public abstract class RoomDB extends RoomDatabase {
             loadUsers(context);
         }
     }
+
+    public void loadCourses(Context context){
+        List<Course> course_list = RoomDB.getRoomDB(context).dao().getAllCourses();
+        if (course_list.size() == 0) {
+            Log.d("RoomDB", "loading data ");
+            loadCourses(context);
+        }
+    }
+
 
     //populate database with a few accounts
     private void loadUsers(Context context) {

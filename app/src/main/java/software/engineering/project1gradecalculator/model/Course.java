@@ -61,7 +61,7 @@ public class Course {
         return Instructor;
     }
 
-    @NonNull
+//    @NonNull
     public String getTitle() {
         return Title;
     }
@@ -81,4 +81,14 @@ public class Course {
     }
 
     public int getPrimaryKey() {return pk;}
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseID=" + courseID +
+                ", Title='" + Title + '\'' +
+                ", Description='" + Description + '\'' +
+                ", Instructor='" + Instructor + '\'' +
+                '}';
+    }
 }

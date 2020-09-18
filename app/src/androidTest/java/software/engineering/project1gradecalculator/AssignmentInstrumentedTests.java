@@ -49,7 +49,7 @@ public class AssignmentInstrumentedTests {
 
     @Test
     public void test_addAssignment(){
-        Course newCourse = new Course("Dr. C", "CST438", "Learn software development", 12345);
+        Course newCourse = new Course("Dr. C", "CST438", "Learn software development", 12345, "@test1");
         userDao.addCourse(newCourse);
         Assignment newAssignment = new Assignment(newCourse.getPrimaryKey(), 583763, 100, 80, "HW1");
         userDao.addAssignment(newAssignment);
@@ -60,7 +60,7 @@ public class AssignmentInstrumentedTests {
     @Test
     public void test_deleteAssignment() {
         //create a temp course and add it to db
-        Course newCourse = new Course("Dr. W", "CST338", "Learn software design", 54321);
+        Course newCourse = new Course("Dr. W", "CST338", "Learn software design", 54321, "@test2");
         userDao.addCourse(newCourse);
         //create a new assignment
         Assignment newAssignment = new Assignment(newCourse.getPrimaryKey(), 993741, 100, 95, "Quiz1");

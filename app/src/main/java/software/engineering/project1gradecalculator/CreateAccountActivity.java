@@ -32,10 +32,10 @@ public class CreateAccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
 
-        final RoomDB db = Room.databaseBuilder(getApplicationContext(), RoomDB.class,"RoomDB")
-                .allowMainThreadQueries()
-                .fallbackToDestructiveMigration()
-                .build();
+//        final RoomDB db = Room.databaseBuilder(getApplicationContext(), RoomDB.class,"RoomDB")
+//                .allowMainThreadQueries()
+//                .fallbackToDestructiveMigration()
+//                .build();
 
         firstName = findViewById(R.id.new_FirstName);
         lastName = findViewById(R.id.new_LastName);
@@ -43,7 +43,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         Password = findViewById(R.id.new_password);
         Create_New_Account = findViewById((R.id.new_account_create_button));
 
-        users = db.dao().getAllUsers();
+        users = RoomDB.getRoomDB(CreateAccountActivity.this).dao().getAllUsers();
         //Just logging some stuff for safety checks
         if(users == null){
             Log.d("AYE THIS EMPTY", "YAH YEET");
@@ -62,7 +62,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                 new_user.setPassword(Password.getText().toString());
                 new_user.setUsername(Username.getText().toString());
                 if(validate(new_user)) {
-                    db.dao().addUser(new_user);
+                    RoomDB.getRoomDB(CreateAccountActivity.this).dao().addUser(new_user);
                     Toast.makeText(CreateAccountActivity.this, "Account Registered!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(CreateAccountActivity.this, MainActivity.class);
                     startActivity(intent);

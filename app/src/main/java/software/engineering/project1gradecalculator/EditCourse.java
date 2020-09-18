@@ -42,8 +42,7 @@ public class EditCourse extends AppCompatActivity {
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //public Course(String Instructor, String Title, String Description, int courseID, String Username)
-              //  Course edit = new Course(inst.getText().toString(), title.getText().toString(), desc.getText().toString(), Integer.parseInt(id.getText().toString()), uname );
+                /** Check the field that should be edited */
                 for (Course c: clist) {
                     if (c.getCourseID() == Integer.parseInt(id.getText().toString()) ) {
                         if (!title.getText().toString().equals("")) {

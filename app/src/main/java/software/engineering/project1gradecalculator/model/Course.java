@@ -25,15 +25,18 @@ public class Course {
     @NonNull
     private String Instructor;
 
+    private float grade;
+
     public Course(){}
 
     @Ignore
-    public Course(String Instructor, String Title, String Description, int courseID, String Username){
+    public Course(String Instructor, String Title, String Description, int courseID, String Username, float grade){
         this.Instructor = Instructor;
         this.Title = Title;
         this.Description = Description;
         this.courseID = courseID;
         this.Username = Username;
+        this.grade = grade;
     }
 
     //******SETTERS******//
@@ -55,13 +58,15 @@ public class Course {
 
     public void setUsername(String username) { this.Username = username ;}
 
+    public void setGrade(float grade) { this.grade = grade; }
+
     //******GETTERS******//
     @NonNull
     public String getInstructor() {
         return Instructor;
     }
 
-//    @NonNull
+    //    @NonNull
     public String getTitle() {
         return Title;
     }
@@ -82,13 +87,15 @@ public class Course {
 
     public int getPrimaryKey() {return pk;}
 
+    public float getGrade() { return grade; }
+
     @Override
     public String toString() {
-        return "Course{" +
-                "courseID=" + courseID +
-                ", Title='" + Title + '\'' +
-                ", Description='" + Description + '\'' +
-                ", Instructor='" + Instructor + '\'' +
+        return "Course {" +
+                "Course ID: " + courseID +
+                ", Title: '" + Title + '\'' +
+                ", Description: '" + Description + '\'' +
+                ", Instructor: '" + Instructor + '\'' +
                 '}';
     }
 }

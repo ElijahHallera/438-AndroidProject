@@ -29,13 +29,26 @@ public interface AppDao {
     @Query("select * from Course")
     List<Course> getAllCourses();
 
+    /** Get User specific Courses */
+    @Query("select * from Course where username = :username")
+    List<Course> userCourses(String username);
+
     @Insert void addCourse(Course course);
+
+    @Delete
+    void deleteCourse(Course course);
+
+    @Update
+    void editCourse(Course course);
 
     @Query("select * from Course where title = :title")
     Course getCourseByName(String title);
 
     @Query("select * from Course where Username = :Username and title = :title")
     Course getCourseByUsername_and_Title(String Username, String title);
+
+    @Insert
+    void addUserCourse(User user, Course course);
     //Assignment*********************************************************
     @Insert
     void addAssignment(Assignment assignment);
@@ -54,18 +67,6 @@ public interface AppDao {
 
     @Query("select * from Assignment where courseID = :courseID and assignmentName = :assignmentName")
     Assignment getAssignmentByCourseID_and_AssignmentName(int courseID, String assignmentName);
-    //User Course*************************************************************
-    @Insert
-    void addUserCourse(User user, Course course);
-
-    @Delete
-    void deleteCourse(Course course);
-
-    @Update
-    void editCourse(Course course);
-
-    @Query("select * from Course where username = :username")
-    List<Course> userCourses(String username);
 
     //Category*****************************************************************
     @Insert

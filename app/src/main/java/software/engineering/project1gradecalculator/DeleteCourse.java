@@ -1,7 +1,7 @@
 package software.engineering.project1gradecalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Delete;
+
 import androidx.room.Room;
 
 import android.content.Intent;
@@ -19,8 +19,6 @@ import software.engineering.project1gradecalculator.model.RoomDB;
 
 public class DeleteCourse extends AppCompatActivity {
 
-
-
     private EditText courseIdText;
     private Button back_button, delete_button;
     String uname = MainActivity.currentUser;
@@ -36,47 +34,40 @@ public class DeleteCourse extends AppCompatActivity {
         courseIdText = (EditText) findViewById(R.id.ET_DCDelete);
         back_button = findViewById(R.id.BTN_DCourseback);
         delete_button = findViewById(R.id.BTN_DCdelete);
-        String text = courseIdText.getText().toString();
-        int toDelete;
         back_button = findViewById(R.id.BTN_DCourseback);
         //** Each user is only allowed to be at one course at a time so the courseId is the course # they'r in */
 
         delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                /** Get user specific course list */
                 course_list = db.dao().userCourses(uname);
-
-                int u = Integer.parseInt(courseIdText.getText().toString());
-                String a1 = "before: ";
-                String a2 = "after: ";
-                for (Course c: course_list) {
-                    a1 += c.getTitle()+"\n";
-                }
-                String x = "";
+                /** Initialize variables */
+                int courseId = 0;
+                String courseTitle = "";
                 List<Course> tempList = null;
-                for(Course c: course_list) {
-                    if (c.getCourseID() == u ) {
-                        db.dao().deleteCourse(c);
-                        x  = c.getTitle();
-                        c.setTitle("");
-                        //course_list.remove(course_list.indexOf(c));
+                if ( courseIdText.getText().toString().equals("") ) {
+                    Toast.makeText(DeleteCourse.this, "No courses were deleted.",
+                            Toast.LENGTH_LONG).show();
+                } else {
+                    courseId = Integer.parseInt(courseIdText.getText().toString());
+
+                    for (Course c : course_list) {
+                        if (c.getCourseID() == courseId) {
+                            courseTitle = c.getTitle();
+                            db.dao().deleteCourse(c);
+                        }
+                    } //for
+                    if (courseTitle.equals("")) {
+                        courseTitle += "No courses were deleted.";
                     }
                 }
-                for (Course c: course_list) {
-                    a2 += c.getTitle()+"\n";
-                }
-                if ( x.equals("")) {
-                    x+= "none";
-                }
-                Log.d("TO DELETE: u ","log: "+u);
-                Log.d("TO DELETE: a1","log: "+a1);
-                Log.d("TO DELETE: a2","log: "+a2);
-                Toast.makeText(DeleteCourse.this, x,
+                Log.d("TO DELETE: courseId ","log: "+ courseId);
+                Toast.makeText(DeleteCourse.this, courseTitle,
                         Toast.LENGTH_LONG).show();
                 CoursePage.avd = tempList;
                 Intent intent = new Intent(DeleteCourse.this, CoursePage.class);
                 startActivity(intent);
-
 
             }
         });
@@ -88,9 +79,6 @@ public class DeleteCourse extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
 
     }
 }

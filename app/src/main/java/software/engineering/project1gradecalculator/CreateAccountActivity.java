@@ -1,7 +1,6 @@
 package software.engineering.project1gradecalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -44,14 +43,6 @@ public class CreateAccountActivity extends AppCompatActivity {
         Create_New_Account = findViewById((R.id.new_account_create_button));
 
         users = RoomDB.getRoomDB(CreateAccountActivity.this).dao().getAllUsers();
-        //Just logging some stuff for safety checks
-        if(users == null){
-            Log.d("AYE THIS EMPTY", "YAH YEET");
-        } else {
-            for(int i = 0; i < users.size(); i++){
-                Log.d("AAAAAAAAAAAAAAAAAAAAAA", users.get(i).getUsername());
-            }
-        }
 
         Create_New_Account.setOnClickListener(new View.OnClickListener() {
             @Override

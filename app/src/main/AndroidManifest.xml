@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DeleteCourse"></activity>
+        <activity android:name=".DeleteId"></activity>
+        <activity android:name=".CoursePage" />
+        <activity android:name=".DeleteCourse" />
         <activity android:name=".EditCourse" />
-        <activity android:name=".Course" />
         <activity android:name=".AddCourse" />
         <activity android:name=".HomePageActivity" />
         <activity android:name=".CreateAccountActivity" />

@@ -5,6 +5,8 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.util.List;
+
 @Entity
 public class User {
     @PrimaryKey(autoGenerate = true)
@@ -71,5 +73,7 @@ public class User {
     public String getLastName(){
         return lastName;
     }
+
+
 }
 

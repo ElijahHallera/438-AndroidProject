@@ -17,6 +17,8 @@ public class HomePageActivity extends AppCompatActivity {
 
     private Button Logout;
     private Button courses;
+    private Button editAccount;
+    TextView display_username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +34,13 @@ public class HomePageActivity extends AppCompatActivity {
 
         Logout = findViewById(R.id.Logout_button);
         courses = findViewById(R.id.BTN_goToCourse);
+        editAccount = findViewById(R.id.edit_button);
 
-        Logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomePageActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+        //Pulls the Logged in User from the Log in Page.
+        display_username = (TextView) findViewById(R.id.display_username);
+        String displayName = db.dao().getUserByName(MainActivity.currentUser).getFirstName();
+        display_username.setText("Welcome " + displayName + "!");
+
 
         courses.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +50,22 @@ public class HomePageActivity extends AppCompatActivity {
             }
         });
 
+        editAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomePageActivity.this, EditAccount.class);
+                startActivity(intent);
+            }
+        });
+
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomePageActivity.this, MainActivity.class);
+                MainActivity.currentUser = null;
+                startActivity(intent);
+            }
+        });
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

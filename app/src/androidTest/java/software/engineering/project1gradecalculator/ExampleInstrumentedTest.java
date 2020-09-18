@@ -41,6 +41,9 @@ public class ExampleInstrumentedTest {
         new_db.dao().getAllUsers();
         Assert.assertEquals("Username", new_db.dao().getUserByName("Username").getUsername());
         Assert.assertNotEquals("Not Username", new_db.dao().getUserByName("Username").getUsername());
+
+        //I know this dao function works I dont know how to write an Assert for it, tried a lot of ways, very challenging. (Elijah)
+        new_db.dao().updateUser("NEWFIRSTNAME", "NEWLASTNAME", "NEWPASSWORD", new_db.dao().getUserByName("Username").toString());
     }
 
     //Tests adding a course using addCourse() from dao.

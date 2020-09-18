@@ -18,29 +18,29 @@
         app:titleMarginStart="40dp"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/display_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to your Homepage!"
+        android:text=""
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.176" />
+        app:layout_constraintVertical_bias="0.119" />
 
     <Button
         android:id="@+id/Logout_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/round_button"
         android:text="Logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.349"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248"
-        android:background="@drawable/round_button"/>
+        app:layout_constraintVertical_bias="0.885" />
 
     <Button
         android:id="@+id/BTN_goToCourse"
@@ -50,7 +50,22 @@
         android:text="@string/go_to_course"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.273" />
+
+    <Button
+        android:id="@+id/edit_button"
+        android:layout_width="132dp"
+        android:layout_height="46dp"
+        android:background="@drawable/round_button"
+        android:text="Edit Account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.404" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

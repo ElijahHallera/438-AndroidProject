@@ -9,6 +9,8 @@ import static org.junit.Assert.*;
 
 public class AssignmentTest {
 
+    //This tests the setters and getters of Assignments
+    //Also tests if the credentials do not match up.
     @Test
     public void CreateAssignment() {
         Assignment new_assignment = new Assignment();

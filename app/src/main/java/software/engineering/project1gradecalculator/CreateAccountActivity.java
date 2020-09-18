@@ -5,7 +5,6 @@ import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,7 +23,6 @@ public class CreateAccountActivity extends AppCompatActivity {
     private EditText Username;
     private EditText Password;
     private Button Create_New_Account;
-
     private List<User> users;
 
     @Override

@@ -22,6 +22,9 @@ public interface AppDao {
     @Query("select * from User where username = :username")
     User getUserByName(String username);
 
+    @Query("UPDATE User SET firstName = :newFirstName, lastName = :newLastName, password = :newPassword WHERE username = :currentUsername")
+    void updateUser(String newFirstName, String newLastName, String newPassword, String currentUsername);
+
     //COURSE************************************************************
     @Query("select * from Course")
     List<Course> getAllCourses();
@@ -37,5 +40,4 @@ public interface AppDao {
 
     @Query("select * from Assignment where courseID = :courseID")
     Assignment getAllAssignmentsByCourse(int courseID);
-
 }

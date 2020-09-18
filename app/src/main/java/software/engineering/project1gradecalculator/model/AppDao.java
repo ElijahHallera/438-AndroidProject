@@ -32,6 +32,9 @@ public interface AppDao {
     @Query("select * from Course where title = :title")
     Course getCourseByName(String title);
 
+    @Query("select * from Course where Username = :Username and title = :title")
+    Course getCourseByUsername_and_Title(String Username, String title);
+
     //Assignment*********************************************************
     @Insert
     void addAssignment(Assignment assignment);
@@ -62,4 +65,12 @@ public interface AppDao {
 
     @Query("select * from Course where username = :username")
     List<Course> userCourses(String username);
+
+    //Category*****************************************************************
+    @Insert
+    void addCategory(Category category);
+
+    @Query("select * from Category where courseID = :courseID")
+    List<Category> courseCategories(int courseID);
+
 }

@@ -15,16 +15,16 @@ public class Assignment {
     @NonNull
     private int categoryID;
     @NonNull
-    private int maxScore;
+    private double maxScore;
     @NonNull
-    private int earnedScore;
+    private double earnedScore;
     @NonNull
     private String assignmentName;
 
     public Assignment(){}
 
     @Ignore
-    public Assignment(int courseID, int categoryID, int maxScore, int earnedScore, String assignmentName) {
+    public Assignment(int courseID, int categoryID, double maxScore, double earnedScore, String assignmentName) {
         this.courseID = courseID;
         this.categoryID = categoryID;
         this.maxScore = maxScore;
@@ -56,19 +56,19 @@ public class Assignment {
         this.categoryID = categoryID;
     }
 
-    public int getMaxScore() {
+    public double getMaxScore() {
         return maxScore;
     }
 
-    public void setMaxScore(int maxScore) {
+    public void setMaxScore(double maxScore) {
         this.maxScore = maxScore;
     }
 
-    public int getEarnedScore() {
+    public double getEarnedScore() {
         return earnedScore;
     }
 
-    public void setEarnedScore(int earnedScore) {
+    public void setEarnedScore(double earnedScore) {
         this.earnedScore = earnedScore;
     }
 

@@ -33,21 +33,18 @@ public class AddCourse extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_course);
 
-        Log.d("<LOG>","log: <IN> AddCourse");
-        final RoomDB db = Room.databaseBuilder(getApplicationContext(), RoomDB.class,"RoomDB")
-                .allowMainThreadQueries()
-                .fallbackToDestructiveMigration()
-                .build();
+//        Log.d("<LOG>","log: <IN> AddCourse");
+//        final RoomDB db = Room.databaseBuilder(getApplicationContext(), RoomDB.class,"RoomDB")
+//                .allowMainThreadQueries()
+//                .fallbackToDestructiveMigration()
+//                .build();
 
         instructor = findViewById(R.id.ET_instructor);
         title = findViewById(R.id.ET_title);
         description = findViewById(R.id.ET_courseDescription);
         course_id = findViewById(R.id.ET_courseId);
         add = findViewById(R.id.BTN_addCourse);
-        courses = db.dao().getAllCourses();
-
-
-
+        courses = RoomDB.getRoomDB(AddCourse.this).dao().getAllCourses();
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +53,7 @@ public class AddCourse extends AppCompatActivity {
                         description.getText().toString(), Integer.parseInt(course_id.getText().toString()),
                         uname);
                 if ( validate(new_course)) {
-                    db.dao().addCourse(new_course);
+                    RoomDB.getRoomDB(AddCourse.this).dao().addCourse(new_course);
                     //xyz = db.dao().userCourses(uname);
                     Toast.makeText(AddCourse.this, "Course was succesfully added", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(AddCourse.this, CoursePage.class);

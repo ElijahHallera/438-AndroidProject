@@ -12,7 +12,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 
-@Database(entities={User.class, Course.class, Assignment.class}, version=5, exportSchema = false)
+@Database(entities={User.class, Course.class, Assignment.class, Category.class}, version=5, exportSchema = false)
 public abstract class RoomDB extends RoomDatabase {
     // singleton design
     private static RoomDB instance;
@@ -35,6 +35,7 @@ public abstract class RoomDB extends RoomDatabase {
         if (user_list.size() == 0) {
             Log.d("RoomDB", "loading data ");
             loadUsers(context);
+            loadCourses(context);
         }
     }
 
@@ -50,6 +51,24 @@ public abstract class RoomDB extends RoomDatabase {
         dao.addUser(chris);
         Log.d("RoomDB", "3 users added to database");
     }
+
+    //populate with courses and categories
+    private void loadCourses(Context context) {
+        AppDao dao = getRoomDB(context).dao();
+
+        Course dummyCourse = new Course("Dr. Click", "Software Engineering",
+                                        "Learning how to code", 438, "A@lice5");
+        dao.addCourse(dummyCourse);
+        Course addedCourse = dao.getCourseByUsername_and_Title("A@lice5", "Software Engineering");
+
+        Category homework = new Category(addedCourse.getPrimaryKey(), "homework");
+        Category tests = new Category(addedCourse.getPrimaryKey(), "tests");
+        Category quizzes = new Category(addedCourse.getPrimaryKey(), "quizzes");
+        dao.addCategory(homework);
+        dao.addCategory(tests);
+        dao.addCategory(quizzes);
+    }
+
 
 
 }

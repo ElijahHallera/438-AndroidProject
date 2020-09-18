@@ -13,7 +13,7 @@ import androidx.room.Update;
 @Dao
 public interface AppDao {
 
-    //USER********************************************************
+    //USER**************************************************************
     @Query("select * from User")
     List<User> getAllUsers();
 
@@ -32,13 +32,24 @@ public interface AppDao {
     @Query("select * from Course where title = :title")
     Course getCourseByName(String title);
 
-    //Assignment************************************************************
+    //Assignment*********************************************************
     @Insert
     void addAssignment(Assignment assignment);
 
-    @Query("select * from Assignment where courseID = :courseID")
-    Assignment getAllAssignmentsByCourse(int courseID);
+    @Delete
+    void deleteAssignment(Assignment assignment);
 
+    @Update
+    void updateAssignment(Assignment assignment);
+
+    @Query("select * from Assignment where courseID = :courseID")
+    List<Assignment> getAllAssignmentsByCourse(int courseID);
+
+    @Query("select * from Assignment where categoryID = :categoryID")
+    List<Assignment> getAllAssignmentsByCategory(int categoryID);
+
+    @Query("select * from Assignment where courseID = :courseID and assignmentName = :assignmentName")
+    Assignment getAssignmentByCourseID_and_AssignmentName(int courseID, String assignmentName);
     //User Course*************************************************************
     @Insert
     void addUserCourse(User user, Course course);
@@ -51,6 +62,4 @@ public interface AppDao {
 
     @Query("select * from Course where username = :username")
     List<Course> userCourses(String username);
-
-
 }

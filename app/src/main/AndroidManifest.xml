@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".EditOrDeleteAssignmentActivity" />
+        <activity android:name=".AddAssignmentActivity" />
         <activity android:name=".DeleteId"></activity>
         <activity android:name=".CoursePage" />
         <activity android:name=".DeleteCourse" />

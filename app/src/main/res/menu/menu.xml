@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home_page"
+        android:title="Home" />
+    <item
+        android:id="@+id/view_courses"
+        android:title="View Courses" />
+    <item
+        android:id="@+id/view_grades"
+        android:title="View Grades" />
+    <item
+        android:id="@+id/about"
+        android:title="About" />
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/action_settings" />
+    <item
+        android:id="@+id/logout"
+        android:title="Logout" />
+</menu>

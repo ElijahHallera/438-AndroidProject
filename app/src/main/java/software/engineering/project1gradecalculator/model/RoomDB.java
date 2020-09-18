@@ -35,7 +35,6 @@ public abstract class RoomDB extends RoomDatabase {
         if (user_list.size() == 0) {
             Log.d("RoomDB", "loading data ");
             loadUsers(context);
-            loadCourses(context);
         }
     }
 
@@ -56,8 +55,7 @@ public abstract class RoomDB extends RoomDatabase {
     private void loadCourses(Context context) {
         AppDao dao = getRoomDB(context).dao();
 
-        Course dummyCourse = new Course("Dr. Click", "Software Engineering",
-                                        "Learning how to code", 438, "A@lice5");
+        Course dummyCourse = new Course("Dr. Click", "Software Engineering", "Learning how to code", 438, "A@lice5", 0);
         dao.addCourse(dummyCourse);
         Course addedCourse = dao.getCourseByUsername_and_Title("A@lice5", "Software Engineering");
 
@@ -72,9 +70,9 @@ public abstract class RoomDB extends RoomDatabase {
         Category addedQuizzes = dao.getCategoryByCourse_and_Name(addedCourse.getPrimaryKey(), "quizzes");
 
         Assignment hw1 = new Assignment(addedCourse.getPrimaryKey(),
-                                        addedHomework.getCategoryID(),
-                                        addedHomework.getName(),
-                                        100, 80, "HW1"
+                addedHomework.getCategoryID(),
+                addedHomework.getName(),
+                100, 80, "HW1"
         );
         Assignment test1 = new Assignment(addedCourse.getPrimaryKey(),
                 addedTests.getCategoryID(),

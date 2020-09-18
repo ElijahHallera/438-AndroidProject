@@ -7,7 +7,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.room.Room;
 
 import android.util.Log;
@@ -19,7 +18,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import software.engineering.project1gradecalculator.model.Course;
@@ -29,22 +27,21 @@ import software.engineering.project1gradecalculator.model.User;
 public class MainActivity extends AppCompatActivity {
 
     public static String currentUser;
-
     private List<User> users;
 
     private EditText Username;
     private EditText Password;
     private Button Login;
-    private Button CreateAccount;
+    private TextView CreateAccount;
 
-    boolean isValid = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
         RoomDB.getRoomDB(MainActivity.this).loadData(this);
 
@@ -79,9 +76,7 @@ public class MainActivity extends AppCompatActivity {
                         currentUser = inputName;
                         Toast.makeText(MainActivity.this, "Successful Login!", Toast.LENGTH_SHORT).show();
 
-                        //Add code to new activity(new page)
                         Intent intent = new Intent(MainActivity.this, HomePageActivity.class);
-//                        intent.putExtra("USERNAME", inputName);
                         startActivity(intent);
                     } else {
                         Log.d("ERROR","log: Input and Password failed validate() function.");

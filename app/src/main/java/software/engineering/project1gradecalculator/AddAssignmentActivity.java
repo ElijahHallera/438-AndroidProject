@@ -36,10 +36,10 @@ public class AddAssignmentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_assignment);
 
-        RecyclerView rvAssignment = findViewById(R.id.select_category_recycler_view);
-        rvAssignment.setLayoutManager( new LinearLayoutManager(this));
+        RecyclerView rvCategory = findViewById(R.id.select_category_recycler_view);
+        rvCategory.setLayoutManager( new LinearLayoutManager(this));
         adapter1 = new Adapter1();
-        rvAssignment.setAdapter( adapter1 );
+        rvCategory.setAdapter( adapter1 );
 
         Button create_button = findViewById(R.id.create_assignment);
         create_button.setOnClickListener(new View.OnClickListener() {

@@ -40,19 +40,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+
         RoomDB.getRoomDB(MainActivity.this).loadData(this);
 
-        //Checks if the database is empty and if so populate it with predefined accounts.
-        users = RoomDB.getRoomDB(MainActivity.this).dao().getAllUsers();
-        if(users.size() <= 0) {
-            User alice = new User("Alice", "Blue", "A@lice5", "@cSit100");
-            User brian = new User("Brian", "Green", "$BriAn7","123aBc##");
-            User chris = new User("Chris", "Yellow", "!chriS12!", "CHrIS12!!");
-            RoomDB.getRoomDB(MainActivity.this).dao().addUser(alice);
-            RoomDB.getRoomDB(MainActivity.this).dao().addUser(brian);
-            RoomDB.getRoomDB(MainActivity.this).dao().addUser(chris);
-        }
-        //Double check to make sure the list has all users.
+        //Populate list with predefined accounts.
         users = RoomDB.getRoomDB(MainActivity.this).dao().getAllUsers();
 
         FloatingActionButton fab = findViewById(R.id.fab);

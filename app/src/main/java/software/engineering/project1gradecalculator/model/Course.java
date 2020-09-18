@@ -11,6 +11,9 @@ public class Course {
     int pk;
 
     @NonNull
+    private String Username;
+
+    @NonNull
     private int courseID;
 
     @NonNull
@@ -25,11 +28,12 @@ public class Course {
     public Course(){}
 
     @Ignore
-    public Course(String Instructor, String Title, String Description, int courseID){
+    public Course(String Instructor, String Title, String Description, int courseID, String Username){
         this.Instructor = Instructor;
         this.Title = Title;
         this.Description = Description;
         this.courseID = courseID;
+        this.Username = Username;
     }
 
     //******SETTERS******//
@@ -49,6 +53,8 @@ public class Course {
         this.courseID = courseID;
     }
 
+    public void setUsername(String username) { this.Username = username ;}
+
     //******GETTERS******//
     @NonNull
     public String getInstructor() {
@@ -63,6 +69,11 @@ public class Course {
     @NonNull
     public String getDescription() {
         return Description;
+    }
+
+    @NonNull
+    public String getUsername() {
+        return Username;
     }
 
     public int getCourseID() {

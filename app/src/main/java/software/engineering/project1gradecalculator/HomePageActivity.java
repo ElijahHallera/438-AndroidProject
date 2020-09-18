@@ -21,7 +21,7 @@ public class HomePageActivity extends AppCompatActivity {
         courses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomePageActivity.this, Course.class);
+                Intent intent = new Intent(HomePageActivity.this, CoursePage.class);
                 startActivity(intent);
             }
         });

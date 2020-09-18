@@ -1,6 +1,7 @@
 package software.engineering.project1gradecalculator.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import androidx.room.Dao;
@@ -49,4 +50,16 @@ public interface AppDao {
 
     @Query("select * from Assignment where courseID = :courseID and assignmentName = :assignmentName")
     Assignment getAssignmentByCourseID_and_AssignmentName(int courseID, String assignmentName);
+    //User Course*************************************************************
+    @Insert
+    void addUserCourse(User user, Course course);
+
+    @Delete
+    void deleteCourse(Course course);
+
+    @Update
+    void editCourse(Course course);
+
+    @Query("select * from Course where username = :username")
+    List<Course> userCourses(String username);
 }

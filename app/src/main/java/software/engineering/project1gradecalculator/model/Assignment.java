@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class Assignment {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @NonNull
     private int assignmentID;
     @NonNull
@@ -79,4 +79,6 @@ public class Assignment {
     public void setAssignmentName(String assignmentName) {
         this.assignmentName = assignmentName;
     }
+
+
 }

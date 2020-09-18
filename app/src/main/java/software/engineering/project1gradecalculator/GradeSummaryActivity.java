@@ -1,7 +1,9 @@
 package software.engineering.project1gradecalculator;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -18,8 +20,13 @@ import software.engineering.project1gradecalculator.model.RoomDB;
 import software.engineering.project1gradecalculator.model.User;
 
 public class GradeSummaryActivity extends AppCompatActivity {
+
+    Adapter1 adapter1;
+    Adapter2 adapter2;
     //the course the user selected from home page
 //        Course currentCourse =
+
+    public static Assignment selectedAssignment;
 
     //get all assignments with matching primary key of current course
     List<Assignment> courseAssignments = new ArrayList<>();
@@ -35,12 +42,18 @@ public class GradeSummaryActivity extends AppCompatActivity {
         
         RecyclerView rvAssignment = findViewById(R.id.assignment_recycler_view);
         rvAssignment.setLayoutManager( new LinearLayoutManager(this));
-        rvAssignment.setAdapter( new Adapter1() );
+//        rvAssignment.setAdapter( new Adapter1() );
+        adapter1 = new Adapter1();
+        rvAssignment.setAdapter( adapter1 );
 
         RecyclerView rvSummary = findViewById(R.id.summary_recycler_view);
         rvSummary.setLayoutManager( new LinearLayoutManager(this));
-        rvSummary.setAdapter( new Adapter2() );
+//        rvSummary.setAdapter( new Adapter2() );
+        adapter2 = new Adapter2();
+        rvSummary.setAdapter( adapter2 );
 
+        // notify recycler view that list of assignments has changed
+//        adapter1.notifyDataSetChanged();
     }
 
     //assignment recycler adapter
@@ -71,8 +84,18 @@ public class GradeSummaryActivity extends AppCompatActivity {
         public void bind(Assignment a) {
             TextView item = itemView.findViewById(R.id.item_id);
             item.setText(a.toString());
+            //make item clickable
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //save selected assignment
+                    selectedAssignment = courseAssignments.get(getAdapterPosition());
+                }
+            });
         }
     }
+
+
 
     //summary recycler adapter
     private class Adapter2  extends RecyclerView.Adapter<ItemHolder2> {

@@ -33,12 +33,6 @@ public class AddCourse extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_course);
 
-//        Log.d("<LOG>","log: <IN> AddCourse");
-//        final RoomDB db = Room.databaseBuilder(getApplicationContext(), RoomDB.class,"RoomDB")
-//                .allowMainThreadQueries()
-//                .fallbackToDestructiveMigration()
-//                .build();
-
         instructor = findViewById(R.id.ET_instructor);
         title = findViewById(R.id.ET_title);
         description = findViewById(R.id.ET_courseDescription);
@@ -49,12 +43,13 @@ public class AddCourse extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                /** Create new Course object */
                 Course new_course = new Course(instructor.getText().toString(), title.getText().toString(),
                         description.getText().toString(), Integer.parseInt(course_id.getText().toString()),
-                        uname);
+                        uname, 0);
+                /** If every field is correctly inputted add the course */
                 if ( validate(new_course)) {
                     RoomDB.getRoomDB(AddCourse.this).dao().addCourse(new_course);
-                    //xyz = db.dao().userCourses(uname);
                     Toast.makeText(AddCourse.this, "Course was succesfully added", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(AddCourse.this, CoursePage.class);
                     startActivity(intent);
@@ -62,20 +57,15 @@ public class AddCourse extends AppCompatActivity {
 
             }
         });
-        Log.d("Log","log: "+uname);
-        for (Course c: courses ) {
-            Log.d(" <All Courses> ", "log Primary Key: "+c.getPrimaryKey()+" || " +c.getTitle()+"" +
-                    " || " +c.getInstructor()+" || " +c.getDescription()+" || " +c.getCourseID());
-        }
-
+        /** Error check to see if list was properly populated */
         if(courses == null){
-            Log.d("Course <null> Tag", "Courses are null <INITIALIZE NECESSARY>");
+            Log.d("Course null check: ", "log-Courses are null <INITIALIZE NECESSARY>");
         }
 
 
     }//onCreate()
 
-    //This will validate if the users input is valid.
+    /**This will validate if the users input is valid.*/
     private Boolean validate(Course c){
         //Check to see if all fields were inputted
         if( c.getInstructor().isEmpty() || c.getDescription().isEmpty() || c.getTitle().isEmpty() ){

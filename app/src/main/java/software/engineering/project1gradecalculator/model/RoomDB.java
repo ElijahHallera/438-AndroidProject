@@ -55,8 +55,7 @@ public abstract class RoomDB extends RoomDatabase {
     private void loadCourses(Context context) {
         AppDao dao = getRoomDB(context).dao();
 
-        Course dummyCourse = new Course("Dr. Click", "Software Engineering",
-                "Learning how to code", 438, "A@lice5");
+        Course dummyCourse = new Course("Dr. Click", "Software Engineering", "Learning how to code", 438, "A@lice5", 0);
         dao.addCourse(dummyCourse);
         Course addedCourse = dao.getCourseByUsername_and_Title("A@lice5", "Software Engineering");
 

@@ -47,12 +47,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/edit_select_category_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="439dp"
+        android:layout_width="352dp"
+        android:layout_height="208dp"
         android:background="#009688"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_earned_score" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_earned_score"
+        app:layout_constraintVertical_bias="0.033" />
 
     <TextView
         android:id="@+id/heading_edit_assignment"
@@ -72,20 +75,26 @@
         android:id="@+id/edit_assignment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
         android:text="Save Changes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_select_category_recycler_view" />
+        app:layout_constraintHorizontal_bias="0.969"
+        app:layout_constraintStart_toEndOf="@+id/delete_assignment"
+        app:layout_constraintTop_toBottomOf="@+id/edit_select_category_recycler_view"
+        app:layout_constraintVertical_bias="0.101" />
 
     <Button
         android:id="@+id/delete_assignment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
         android:text="Delete Assignment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_select_category_recycler_view" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_select_category_recycler_view"
+        app:layout_constraintVertical_bias="0.101" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

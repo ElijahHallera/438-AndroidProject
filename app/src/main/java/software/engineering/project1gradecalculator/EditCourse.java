@@ -43,7 +43,7 @@ public class EditCourse extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 /** Check the field that should be edited */
-                for (Course c: clist) {
+                 for (Course c: clist) {
                     if (c.getCourseID() == Integer.parseInt(id.getText().toString()) ) {
                         if (!title.getText().toString().equals("")) {
                             c.setTitle(title.getText().toString());

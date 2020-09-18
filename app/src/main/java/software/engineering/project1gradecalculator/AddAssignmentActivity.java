@@ -1,5 +1,6 @@
 package software.engineering.project1gradecalculator;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,13 +57,15 @@ public class AddAssignmentActivity extends AppCompatActivity {
                 Assignment createdAssignment = new Assignment(
                         currentCourse.getPrimaryKey(),
                         selectedCategory.getCategoryID(),
+                        selectedCategory.getName(),
                         enteredMaxScore,
                         enteredEarnedScore,
                         enteredAssignmentName
                 );
                 //add to db
                 RoomDB.getRoomDB(AddAssignmentActivity.this).dao().addAssignment(createdAssignment);
-                finish();
+                Intent intent = new Intent(AddAssignmentActivity.this, GradeSummaryActivity.class);
+                startActivity(intent);
             }
         });
     }

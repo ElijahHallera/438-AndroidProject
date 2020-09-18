@@ -20,16 +20,19 @@ public class Assignment {
     private double earnedScore;
     @NonNull
     private String assignmentName;
+    @NonNull
+    private String categoryName;
 
     public Assignment(){}
 
     @Ignore
-    public Assignment(int courseID, int categoryID, double maxScore, double earnedScore, String assignmentName) {
+    public Assignment(int courseID, int categoryID, String categoryName, double maxScore, double earnedScore, String assignmentName) {
         this.courseID = courseID;
         this.categoryID = categoryID;
         this.maxScore = maxScore;
         this.earnedScore = earnedScore;
         this.assignmentName = assignmentName;
+        this.categoryName = categoryName;
     }
 
     public void setAssignmentID(int assignmentID) {
@@ -80,5 +83,13 @@ public class Assignment {
         this.assignmentName = assignmentName;
     }
 
+    public String getCategoryName(){ return categoryName; }
 
+    public void setCategoryName(String categoryName) { this.categoryName = categoryName; }
+
+    @Override
+    public String toString() {
+        return assignmentName + "   "+ categoryName + "   " + earnedScore + "/" + maxScore + '\'' +
+                '}';
+    }
 }

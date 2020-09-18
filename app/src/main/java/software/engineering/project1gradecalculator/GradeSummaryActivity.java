@@ -62,8 +62,17 @@ public class GradeSummaryActivity extends AppCompatActivity {
             }
         });
 
+        Button back_button = findViewById(R.id.back_button);
+        back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GradeSummaryActivity.this, CoursePage.class);
+                startActivity(intent);
+            }
+        });
+
         // notify recycler view that list of assignments has changed
-//        adapter1.notifyDataSetChanged();
+        // adapter1.notifyDataSetChanged();
     }
 
     //assignment recycler adapter
@@ -100,6 +109,8 @@ public class GradeSummaryActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     //save selected assignment
                     selectedAssignment = courseAssignments.get(getAdapterPosition());
+                    Intent intent = new Intent(GradeSummaryActivity.this, EditOrDeleteAssignmentActivity.class);
+                    startActivity(intent);
                 }
             });
         }

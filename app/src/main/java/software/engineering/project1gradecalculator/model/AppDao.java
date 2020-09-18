@@ -73,4 +73,6 @@ public interface AppDao {
     @Query("select * from Category where courseID = :courseID")
     List<Category> courseCategories(int courseID);
 
+    @Query("select * from Category where courseID = :courseID and name = :name")
+    Category getCategoryByCourse_and_Name(int courseID, String name);
 }

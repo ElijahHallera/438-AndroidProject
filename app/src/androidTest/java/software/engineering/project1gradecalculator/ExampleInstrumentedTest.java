@@ -10,10 +10,9 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import software.engineering.project1gradecalculator.model.AppDao;
+import software.engineering.project1gradecalculator.model.Course;
 import software.engineering.project1gradecalculator.model.RoomDB;
 import software.engineering.project1gradecalculator.model.User;
-import software.engineering.project1gradecalculator.model.Course;
 
 import static androidx.test.core.app.ApplicationProvider.getApplicationContext;
 import static org.junit.Assert.*;
@@ -25,11 +24,17 @@ import static org.junit.Assert.*;
  */
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
-
     final RoomDB new_db = Room.databaseBuilder(getApplicationContext(), RoomDB.class,"RoomDB")
             .allowMainThreadQueries()
             .fallbackToDestructiveMigration()
             .build();
+
+    @Test
+    public void testing_tests(){
+        User new_user = new User("Bobby", "Davis", "Bodavis", "otter");
+        new_db.dao().addUser(new_user);
+        Assert.assertEquals("Bodavis", new_db.dao().getUserByName("Bodavis").getUsername());
+    }
 
     //Create a new User, Add the user using addUser() from dao.
     //Get all Users using getAllUsers() from dao.
@@ -51,10 +56,11 @@ public class ExampleInstrumentedTest {
     //Tests getting Title from the database using getCourseByName() from dao.
     @Test
     public void daoCourseFunctions(){
-        Course new_course = new Course("Instructor", "Title", "Description", 12345);
+        software.engineering.project1gradecalculator.model.Course new_course = new Course("Instructor", "Title", "Description", 12345);
         new_db.dao().addCourse(new_course);
         new_db.dao().getAllCourses();
         Assert.assertEquals("Title", new_db.dao().getCourseByName("Title").getTitle());
         Assert.assertNotEquals("Software Design", new_db.dao().getCourseByName("Title").getTitle());
     }
+
 }

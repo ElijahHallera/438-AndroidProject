@@ -1,10 +1,10 @@
 package software.engineering.project1gradecalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +23,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     private EditText Username;
     private EditText Password;
     private Button Create_New_Account;
+
     private List<User> users;
 
     @Override
@@ -30,10 +31,10 @@ public class CreateAccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
 
-        final RoomDB db = Room.databaseBuilder(getApplicationContext(), RoomDB.class,"RoomDB")
-                .allowMainThreadQueries()
-                .fallbackToDestructiveMigration()
-                .build();
+//        final RoomDB db = Room.databaseBuilder(getApplicationContext(), RoomDB.class,"RoomDB")
+//                .allowMainThreadQueries()
+//                .fallbackToDestructiveMigration()
+//                .build();
 
         firstName = findViewById(R.id.new_FirstName);
         lastName = findViewById(R.id.new_LastName);
@@ -41,7 +42,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         Password = findViewById(R.id.new_password);
         Create_New_Account = findViewById((R.id.new_account_create_button));
 
-        users = db.dao().getAllUsers();
+        users = RoomDB.getRoomDB(CreateAccountActivity.this).dao().getAllUsers();
 
         Create_New_Account.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +53,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                 new_user.setPassword(Password.getText().toString());
                 new_user.setUsername(Username.getText().toString());
                 if(validate(new_user)) {
-                    db.dao().addUser(new_user);
+                    RoomDB.getRoomDB(CreateAccountActivity.this).dao().addUser(new_user);
                     Toast.makeText(CreateAccountActivity.this, "Account Registered!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(CreateAccountActivity.this, MainActivity.class);
                     startActivity(intent);

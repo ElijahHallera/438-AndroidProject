@@ -34,10 +34,45 @@ public interface AppDao {
     @Query("select * from Course where title = :title")
     Course getCourseByName(String title);
 
-    //Assignment************************************************************
+    //Assignment*********************************************************
     @Insert
     void addAssignment(Assignment assignment);
 
+    @Delete
+    void deleteAssignment(Assignment assignment);
+
+    @Update
+    void updateAssignment(Assignment assignment);
+
     @Query("select * from Assignment where courseID = :courseID")
-    Assignment getAllAssignmentsByCourse(int courseID);
+    List<Assignment> getAllAssignmentsByCourse(int courseID);
+
+    @Query("select * from Assignment where categoryID = :categoryID")
+    List<Assignment> getAllAssignmentsByCategory(int categoryID);
+
+    @Query("select * from Assignment where courseID = :courseID and assignmentName = :assignmentName")
+    Assignment getAssignmentByCourseID_and_AssignmentName(int courseID, String assignmentName);
+    //User Course*************************************************************
+    @Insert
+    void addUserCourse(User user, Course course);
+
+    @Delete
+    void deleteCourse(Course course);
+
+    @Update
+    void editCourse(Course course);
+
+    @Query("select * from Course where username = :username")
+    List<Course> userCourses(String username);
+
+    //Category*****************************************************************
+    @Insert
+    void addCategory(Category category);
+
+    @Query("select * from Category where courseID = :courseID")
+    List<Category> courseCategories(int courseID);
+
+    @Query("select * from Category where courseID = :courseID and name = :name")
+    Category getCategoryByCourse_and_Name(int courseID, String name);
+
 }

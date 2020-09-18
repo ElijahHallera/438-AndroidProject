@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class Assignment {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @NonNull
     private int assignmentID;
     @NonNull
@@ -15,21 +15,24 @@ public class Assignment {
     @NonNull
     private int categoryID;
     @NonNull
-    private int maxScore;
+    private double maxScore;
     @NonNull
-    private int earnedScore;
+    private double earnedScore;
     @NonNull
     private String assignmentName;
+    @NonNull
+    private String categoryName;
 
     public Assignment(){}
 
     @Ignore
-    public Assignment(int courseID, int categoryID, int maxScore, int earnedScore, String assignmentName) {
+    public Assignment(int courseID, int categoryID, String categoryName, double maxScore, double earnedScore, String assignmentName) {
         this.courseID = courseID;
         this.categoryID = categoryID;
         this.maxScore = maxScore;
         this.earnedScore = earnedScore;
         this.assignmentName = assignmentName;
+        this.categoryName = categoryName;
     }
 
     public void setAssignmentID(int assignmentID) {
@@ -56,19 +59,19 @@ public class Assignment {
         this.categoryID = categoryID;
     }
 
-    public int getMaxScore() {
+    public double getMaxScore() {
         return maxScore;
     }
 
-    public void setMaxScore(int maxScore) {
+    public void setMaxScore(double maxScore) {
         this.maxScore = maxScore;
     }
 
-    public int getEarnedScore() {
+    public double getEarnedScore() {
         return earnedScore;
     }
 
-    public void setEarnedScore(int earnedScore) {
+    public void setEarnedScore(double earnedScore) {
         this.earnedScore = earnedScore;
     }
 
@@ -78,5 +81,15 @@ public class Assignment {
 
     public void setAssignmentName(String assignmentName) {
         this.assignmentName = assignmentName;
+    }
+
+    public String getCategoryName(){ return categoryName; }
+
+    public void setCategoryName(String categoryName) { this.categoryName = categoryName; }
+
+    @Override
+    public String toString() {
+        return assignmentName + "   "+ categoryName + "   " + earnedScore + "/" + maxScore + '\'' +
+                '}';
     }
 }

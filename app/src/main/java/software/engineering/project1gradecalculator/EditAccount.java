@@ -64,7 +64,7 @@ public class EditAccount extends AppCompatActivity {
                 } else {
                     for(int i = 0; i < users.size(); i++){
                         if(users.get(i).getUsername().equals(db.dao().getUserByName(MainActivity.currentUser).getUsername())){
-                            db.dao().updateUser(updatedFirstName.getText().toString(), updatedLastName.getText().toString(), updatedPassword.getText().toString(), MainActivity.currentUser);
+                            RoomDB.getRoomDB(EditAccount.this).dao().updateUser(updatedFirstName.getText().toString(), updatedLastName.getText().toString(), updatedPassword.getText().toString(), MainActivity.currentUser);
                             break;
                         }
                     }

@@ -40,11 +40,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        final RoomDB db = Room.databaseBuilder(getApplicationContext(), RoomDB.class,"RoomDB")
-//                .allowMainThreadQueries()
-//                .fallbackToDestructiveMigration()
-//                .build();
-
         RoomDB.getRoomDB(MainActivity.this).loadData(this);
 
         //Checks if the database is empty and if so populate it with predefined accounts.

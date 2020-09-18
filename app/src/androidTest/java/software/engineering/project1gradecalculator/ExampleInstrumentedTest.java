@@ -56,7 +56,7 @@ public class ExampleInstrumentedTest {
     //Tests getting Title from the database using getCourseByName() from dao.
     @Test
     public void daoCourseFunctions(){
-        software.engineering.project1gradecalculator.model.Course new_course = new Course("Instructor", "Title", "Description", 12345);
+        software.engineering.project1gradecalculator.model.Course new_course = new Course("Instructor", "Title", "Description", 12345, "Username");
         new_db.dao().addCourse(new_course);
         new_db.dao().getAllCourses();
         Assert.assertEquals("Title", new_db.dao().getCourseByName("Title").getTitle());

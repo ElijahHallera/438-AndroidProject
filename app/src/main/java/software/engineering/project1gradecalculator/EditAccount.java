@@ -29,21 +29,16 @@ public class EditAccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_account);
 
-        final RoomDB db = Room.databaseBuilder(getApplicationContext(), RoomDB.class,"RoomDB")
-                .allowMainThreadQueries()
-                .fallbackToDestructiveMigration()
-                .build();
-
         //Displays the Users current information
-        users = db.dao().getAllUsers();
+        users = RoomDB.getRoomDB(EditAccount.this).dao().getAllUsers();
         displayFirstName = (TextView) findViewById(R.id.currentFirstName);
         displayLastName = (TextView) findViewById(R.id.currentLastName);
         displayUsername = (TextView) findViewById(R.id.currentUsername);
         displayPassword = (TextView) findViewById(R.id.currentPassword);
-        displayFirstName.setText("Current First Name: " + db.dao().getUserByName(MainActivity.currentUser).getFirstName());
-        displayLastName.setText("Current Last Name: " + db.dao().getUserByName(MainActivity.currentUser).getLastName());
-        displayUsername.setText("Current Username: " + db.dao().getUserByName(MainActivity.currentUser).getUsername());
-        displayPassword.setText("Current Password: " + db.dao().getUserByName(MainActivity.currentUser).getPassword());
+        displayFirstName.setText("Current First Name: " + RoomDB.getRoomDB(EditAccount.this).dao().getUserByName(MainActivity.currentUser).getFirstName());
+        displayLastName.setText("Current Last Name: " + RoomDB.getRoomDB(EditAccount.this).dao().getUserByName(MainActivity.currentUser).getLastName());
+        displayUsername.setText("Current Username: " + RoomDB.getRoomDB(EditAccount.this).dao().getUserByName(MainActivity.currentUser).getUsername());
+        displayPassword.setText("Current Password: " + RoomDB.getRoomDB(EditAccount.this).dao().getUserByName(MainActivity.currentUser).getPassword());
 
         //This takes in user information that they are changing
         updatedFirstName = findViewById(R.id.etNewFirstName);
@@ -63,7 +58,7 @@ public class EditAccount extends AppCompatActivity {
                     return;
                 } else {
                     for(int i = 0; i < users.size(); i++){
-                        if(users.get(i).getUsername().equals(db.dao().getUserByName(MainActivity.currentUser).getUsername())){
+                        if(users.get(i).getUsername().equals(RoomDB.getRoomDB(EditAccount.this).dao().getUserByName(MainActivity.currentUser).getUsername())){
                             RoomDB.getRoomDB(EditAccount.this).dao().updateUser(updatedFirstName.getText().toString(), updatedLastName.getText().toString(), updatedPassword.getText().toString(), MainActivity.currentUser);
                             break;
                         }

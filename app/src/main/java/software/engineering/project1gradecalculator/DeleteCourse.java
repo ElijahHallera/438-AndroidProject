@@ -29,10 +29,7 @@ public class DeleteCourse extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete_course);
-        final RoomDB db = Room.databaseBuilder(getApplicationContext(), RoomDB.class,"RoomDB")
-                .allowMainThreadQueries()
-                .fallbackToDestructiveMigration()
-                .build();
+
         courseIdText = (EditText) findViewById(R.id.ET_DCDelete);
         back_button = findViewById(R.id.BTN_DCourseback);
         delete_button = findViewById(R.id.BTN_DCdelete);
@@ -45,7 +42,7 @@ public class DeleteCourse extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 /** Get user specific course list */
-                course_list = db.dao().userCourses(uname);
+                course_list = RoomDB.getRoomDB(DeleteCourse.this).dao().userCourses(uname);
                 /** Initialize variables */
                 int courseId = 0;
                 String courseTitle = "";
@@ -60,7 +57,7 @@ public class DeleteCourse extends AppCompatActivity {
                     for (Course c : course_list) {
                         if (c.getCourseID() == courseId) {
                             courseTitle = c.getTitle();
-                            db.dao().deleteCourse(c);
+                            RoomDB.getRoomDB(DeleteCourse.this).dao().deleteCourse(c);
                         }
                     } //for
                     if (courseTitle.equals("")) {

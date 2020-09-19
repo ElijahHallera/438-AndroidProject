@@ -31,11 +31,6 @@ public class CreateAccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
 
-//        final RoomDB db = Room.databaseBuilder(getApplicationContext(), RoomDB.class,"RoomDB")
-//                .allowMainThreadQueries()
-//                .fallbackToDestructiveMigration()
-//                .build();
-
         firstName = findViewById(R.id.new_FirstName);
         lastName = findViewById(R.id.new_LastName);
         Username = findViewById(R.id.new_username);
@@ -60,7 +55,6 @@ public class CreateAccountActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     //This will validate if the users input is valid.

@@ -35,6 +35,7 @@ public abstract class RoomDB extends RoomDatabase {
         if (user_list.size() == 0) {
             Log.d("RoomDB", "loading data ");
             loadUsers(context);
+            loadCourses(context);
         }
     }
 

@@ -27,18 +27,13 @@ public class HomePageActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        final RoomDB db = Room.databaseBuilder(getApplicationContext(), RoomDB.class,"RoomDB")
-                .allowMainThreadQueries()
-                .fallbackToDestructiveMigration()
-                .build();
-
         Logout = findViewById(R.id.Logout_button);
         courses = findViewById(R.id.BTN_goToCourse);
         editAccount = findViewById(R.id.edit_button);
 
         //Pulls the Logged in User from the Log in Page.
         display_username = (TextView) findViewById(R.id.display_username);
-        String displayName = db.dao().getUserByName(MainActivity.currentUser).getFirstName();
+        String displayName = RoomDB.getRoomDB(HomePageActivity.this).dao().getUserByName(MainActivity.currentUser).getFirstName();
         display_username.setText("Welcome " + displayName + "!");
 
 

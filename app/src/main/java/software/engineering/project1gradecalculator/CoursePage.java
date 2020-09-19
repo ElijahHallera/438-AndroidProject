@@ -37,19 +37,15 @@ public class CoursePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_page);
-        final RoomDB db = Room.databaseBuilder(getApplicationContext(), RoomDB.class,"RoomDB")
-                .allowMainThreadQueries()
-                .fallbackToDestructiveMigration()
-                .build();
 
         RecyclerView rvAssignment = findViewById(R.id.course_recycler_view);
         rvAssignment.setLayoutManager( new LinearLayoutManager(this));
         adapter = new Adapter();
         rvAssignment.setAdapter( adapter );
 
-        courses = db.dao().getAllCourses();
+        courses = RoomDB.getRoomDB(CoursePage.this).dao().getAllCourses();
 //        text = findViewById(R.id.TV_CPtextV);
-        avd = db.dao().userCourses(uname);
+        avd = RoomDB.getRoomDB(CoursePage.this).dao().userCourses(uname);
         String temp = "";
 
         for (Course c: avd) {

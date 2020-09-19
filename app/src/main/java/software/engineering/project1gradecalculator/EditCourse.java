@@ -26,11 +26,8 @@ public class EditCourse extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_course);
-        final RoomDB db = Room.databaseBuilder(getApplicationContext(), RoomDB.class,"RoomDB")
-                .allowMainThreadQueries()
-                .fallbackToDestructiveMigration()
-                .build();
-        clist = db.dao().userCourses(uname);
+
+        clist = RoomDB.getRoomDB(EditCourse.this).dao().userCourses(uname);
         id = findViewById(R.id.ET_ECcid);
         inst = findViewById(R.id.ET_ECins);
         title = findViewById(R.id.ET_ECtitle);
@@ -54,7 +51,7 @@ public class EditCourse extends AppCompatActivity {
                         if (!desc.getText().toString().equals("")) {
                             c.setDescription(desc.getText().toString());
                         }
-                        db.dao().editCourse(c);
+                        RoomDB.getRoomDB(EditCourse.this).dao().editCourse(c);
                     }
                 }
 

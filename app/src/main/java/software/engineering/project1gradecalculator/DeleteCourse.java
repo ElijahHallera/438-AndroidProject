@@ -1,9 +1,6 @@
 package software.engineering.project1gradecalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Delete;
-import androidx.room.Room;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,8 +30,6 @@ public class DeleteCourse extends AppCompatActivity {
         courseIdText = (EditText) findViewById(R.id.ET_DCDelete);
         back_button = findViewById(R.id.BTN_DCourseback);
         delete_button = findViewById(R.id.BTN_DCdelete);
-        String text = courseIdText.getText().toString();
-        int toDelete;
         back_button = findViewById(R.id.BTN_DCourseback);
         //** Each user is only allowed to be at one course at a time so the courseId is the course # they'r in */
 

@@ -24,17 +24,11 @@ import static org.junit.Assert.*;
  */
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
+
     final RoomDB new_db = Room.databaseBuilder(getApplicationContext(), RoomDB.class,"RoomDB")
             .allowMainThreadQueries()
             .fallbackToDestructiveMigration()
             .build();
-
-    @Test
-    public void testing_tests(){
-        User new_user = new User("Bobby", "Davis", "Bodavis", "otter");
-        new_db.dao().addUser(new_user);
-        Assert.assertEquals("Bodavis", new_db.dao().getUserByName("Bodavis").getUsername());
-    }
 
     //Create a new User, Add the user using addUser() from dao.
     //Get all Users using getAllUsers() from dao.
@@ -48,19 +42,6 @@ public class ExampleInstrumentedTest {
         Assert.assertNotEquals("Not Username", new_db.dao().getUserByName("Username").getUsername());
 
         //I know this dao function works I dont know how to write an Assert for it, tried a lot of ways, very challenging. (Elijah)
-        new_db.dao().updateUser("NEWFIRSTNAME", "NEWLASTNAME", "NEWPASSWORD", new_db.dao().getUserByName("Username").toString());
+        new_db.dao().updateUser("NEWFIRSTNAME", "NEWLASTNAME", "NEWPASSWORD", new_db.dao().getUserByName(new_user.getUsername()).toString());
     }
-
-    //Tests adding a course using addCourse() from dao.
-    //Tests getting all courses using getAllCourses() from dao.
-    //Tests getting Title from the database using getCourseByName() from dao.
-    @Test
-    public void daoCourseFunctions(){
-        software.engineering.project1gradecalculator.model.Course new_course = new Course("Instructor", "Title", "Description", 12345, "Username");
-        new_db.dao().addCourse(new_course);
-        new_db.dao().getAllCourses();
-        Assert.assertEquals("Title", new_db.dao().getCourseByName("Title").getTitle());
-        Assert.assertNotEquals("Software Design", new_db.dao().getCourseByName("Title").getTitle());
-    }
-
 }

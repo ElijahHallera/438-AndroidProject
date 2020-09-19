@@ -48,9 +48,6 @@ public interface AppDao {
     @Query("select * from Course where Username = :Username and title = :title")
     Course getCourseByUsername_and_Title(String Username, String title);
 
-    @Insert
-    void addUserCourse(User user, Course course);
-
     //Assignment*********************************************************
     @Insert
     void addAssignment(Assignment assignment);

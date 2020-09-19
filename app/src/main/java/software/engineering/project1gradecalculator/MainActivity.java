@@ -7,7 +7,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import android.util.Log;
 import android.view.View;
@@ -20,7 +19,6 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import software.engineering.project1gradecalculator.model.Course;
 import software.engineering.project1gradecalculator.model.RoomDB;
 import software.engineering.project1gradecalculator.model.User;
 
@@ -39,9 +37,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
 
         RoomDB.getRoomDB(MainActivity.this).loadData(this);
 

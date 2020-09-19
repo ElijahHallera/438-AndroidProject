@@ -12,13 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import software.engineering.project1gradecalculator.model.Assignment;
 import software.engineering.project1gradecalculator.model.Course;
 import software.engineering.project1gradecalculator.model.RoomDB;
-import software.engineering.project1gradecalculator.model.User;
 import software.engineering.project1gradecalculator.model.Category;
 
 public class GradeSummaryActivity extends AppCompatActivity {

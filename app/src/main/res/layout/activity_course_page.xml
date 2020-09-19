@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CoursePage">
+    tools:context=".CoursePage"
+    android:background="@drawable/gradient">
 
     <Button
         android:id="@+id/BTN_CPadd"
         android:layout_width="167dp"
         android:layout_height="47dp"
         android:text="ADD COURSE"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/round_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.102"
@@ -23,6 +26,8 @@
         android:layout_width="155dp"
         android:layout_height="49dp"
         android:text="DELETE COURSE"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/round_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.851"
@@ -35,6 +40,8 @@
         android:layout_width="160dp"
         android:layout_height="48dp"
         android:text="EDIT COURSE"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/round_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.127"
@@ -42,21 +49,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.786" />
 
-    <!--    <TextView-->
-<!--        android:id="@+id/TV_CPtextV"-->
-<!--        android:layout_width="354dp"-->
-<!--        android:layout_height="337dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.163" />-->
-
     <Button
         android:id="@+id/BTN_CPback"
         android:layout_width="160dp"
         android:layout_height="48dp"
+        android:textColor="#FFFFFF"
         android:text="BACK"
+        android:background="@drawable/round_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.868"

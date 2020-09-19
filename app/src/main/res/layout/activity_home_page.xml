@@ -7,22 +7,13 @@
     tools:context=".HomePageActivity"
     android:background="@drawable/gradient">
 
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/toolbar"
-        android:background="#C93384"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:title="Group 6 Grade Tracker"
-        app:titleTextColor="#f1f1f1"
-        app:titleMarginStart="40dp"/>
-
     <TextView
         android:id="@+id/display_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
         android:textSize="25dp"
+        android:textColor="#f1f1f1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,6 +26,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/round_button"
         android:text="Logout"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -46,6 +38,7 @@
         android:id="@+id/BTN_goToCourse"
         android:layout_width="131dp"
         android:layout_height="50dp"
+        android:textColor="#FFFFFF"
         android:background="@drawable/round_button"
         android:text="@string/go_to_course"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -59,13 +52,14 @@
         android:id="@+id/edit_button"
         android:layout_width="132dp"
         android:layout_height="46dp"
+        android:textColor="#FFFFFF"
         android:background="@drawable/round_button"
         android:text="Edit Account"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.404" />
+        app:layout_constraintTop_toBottomOf="@+id/BTN_goToCourse"
+        app:layout_constraintVertical_bias="0.091" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

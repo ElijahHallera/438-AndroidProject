@@ -15,13 +15,16 @@ public class Category {
     @NonNull
     private String name;
     private double score;
+    @NonNull
+    private int weight;
 
     public Category(){}
 
     @Ignore
-    public Category(int courseID, @NonNull String name) {
+    public Category(int courseID, @NonNull String name, int weight) {
         this.courseID = courseID;
         this.name = name;
+        this.weight = weight;
     }
 
     //getters
@@ -30,15 +33,16 @@ public class Category {
     @NonNull
     public String getName() { return name; }
     public double getScore() { return score; }
-
+    public int getWeight() { return weight; }
     //setters
     public void setCategoryID(int categoryID) { this.categoryID = categoryID; }
     public void setCourseID(int courseID) { this.courseID = courseID; }
     public void setName(@NonNull String name) { this.name = name; }
     public void setScore(double score) { this.score = score; }
+    public void setWeight(int weight) { this.weight = weight; }
 
     @Override
     public String toString() {
-        return name + "   TOTAL: " +score;
+        return name + "   TOTAL: " + score + "   Weight: " + weight;
     }
 }

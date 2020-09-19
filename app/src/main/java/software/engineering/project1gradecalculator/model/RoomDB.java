@@ -60,9 +60,9 @@ public abstract class RoomDB extends RoomDatabase {
         dao.addCourse(dummyCourse);
         Course addedCourse = dao.getCourseByUsername_and_Title("A@lice5", "Software Engineering");
 
-        Category homework = new Category(addedCourse.getPrimaryKey(), "homework");
-        Category tests = new Category(addedCourse.getPrimaryKey(), "tests");
-        Category quizzes = new Category(addedCourse.getPrimaryKey(), "quizzes");
+        Category homework = new Category(addedCourse.getPrimaryKey(), "homework", 40);
+        Category tests = new Category(addedCourse.getPrimaryKey(), "tests", 40);
+        Category quizzes = new Category(addedCourse.getPrimaryKey(), "quizzes", 20);
         dao.addCategory(homework);
         dao.addCategory(tests);
         dao.addCategory(quizzes);

@@ -25,8 +25,8 @@ import software.engineering.project1gradecalculator.model.User;
 import software.engineering.project1gradecalculator.model.Category;
 
 public class GradeSummaryActivity extends AppCompatActivity {
+    //save assignment user selects
     public static Assignment selectedAssignment;
-
     //the course the user selected from home page
     Course currentCourse = CoursePage.selectedCourse;
     //get all assignments with matching primary key of current course
@@ -45,13 +45,13 @@ public class GradeSummaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grade_summary);
 
-        //sort courseAssignments by category
-
+        //holds assignments
         RecyclerView rvAssignment = findViewById(R.id.assignment_recycler_view);
         rvAssignment.setLayoutManager( new LinearLayoutManager(this));
         adapter1 = new Adapter1();
         rvAssignment.setAdapter( adapter1 );
 
+        //holds categories
         RecyclerView rvSummary = findViewById(R.id.summary_recycler_view);
         rvSummary.setLayoutManager( new LinearLayoutManager(this));
         adapter2 = new Adapter2();
@@ -60,6 +60,7 @@ public class GradeSummaryActivity extends AppCompatActivity {
         TextView msg = findViewById(R.id.course_name_text_view);
         msg.setText(currentCourse.getTitle());
 
+        //add assignment button
         Button add_button = findViewById(R.id.add_assignment_button);
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +70,7 @@ public class GradeSummaryActivity extends AppCompatActivity {
             }
         });
 
+        //back button
         Button back_button = findViewById(R.id.back_button);
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +80,7 @@ public class GradeSummaryActivity extends AppCompatActivity {
             }
         });
 
+        //display course score in button
         Button score_button = findViewById(R.id.course_score_button);
         score_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,7 +90,6 @@ public class GradeSummaryActivity extends AppCompatActivity {
                 adapter1.notifyDataSetChanged();
             }
         });
-
 
         //calculate grades
         double earnedSum = 0.0;

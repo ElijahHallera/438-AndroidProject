@@ -89,7 +89,6 @@ public class Assignment {
 
     @Override
     public String toString() {
-        return assignmentName + "   "+ categoryName + "   " + earnedScore + "/" + maxScore + '\'' +
-                '}';
+        return assignmentName + "   "+ categoryName + "   " + earnedScore + "/" + maxScore + '\'';
     }
 }
